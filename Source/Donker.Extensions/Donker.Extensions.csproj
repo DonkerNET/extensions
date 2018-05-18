@@ -111,7 +111,6 @@
     <Compile Include="ExtensionMethods\IListExtensions\MoveItem.cs" />
     <Compile Include="ExtensionMethods\IListExtensions\SwitchItem.cs" />
     <Compile Include="ExtensionMethods\NameValueCollectionExtensions\ToQueryString.cs" />
-    <Compile Include="ExtensionMethods\PrivateFontCollectionExtensions\AddFontFromBytes.cs" />
     <Compile Include="ExtensionMethods\StringBuilderExtensions\ReplaceMultiple.cs" />
     <Compile Include="ExtensionMethods\StringExtensions\AddWhiteSpaceBeforeUpperChars.cs" />
     <Compile Include="ExtensionMethods\StringExtensions\ContainsString.cs" />
@@ -129,16 +128,22 @@
     <Compile Include="ExtensionMethods\StringExtensions\TrimString.cs" />
     <Compile Include="ExtensionMethods\CharExtensions\IsHex.cs" />
     <Compile Include="ExtensionMethods\StringExtensions\Truncate.cs" />
+    <Compile Include="Helpers\ComparisonHelper\GetMaxValue.cs" />
+    <Compile Include="Helpers\ComparisonHelper\GetMinValue.cs" />
     <Compile Include="Helpers\EnumHelper\ConvertOrDefault.cs" />
     <Compile Include="Helpers\EnumHelper\Parse.cs" />
     <Compile Include="Helpers\FileHelper\GetFirstAvailablePath.cs" />
+    <Compile Include="Helpers\GraphicsHelper\CreateFontFromStream.cs" />
+    <Compile Include="Helpers\GraphicsHelper\CreateFontFromBytes.cs" />
     <Compile Include="Helpers\GraphicsHelper\MeasureString.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ExtensionMethods\StringExtensions\ToNameValueCollection.cs" />
+    <Compile Include="Utils\ConversionUtil.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

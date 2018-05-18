@@ -38,6 +38,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -73,6 +74,7 @@
   <ItemGroup>
     <Compile Include="ExtensionMethods\HtmlHelperExtensions\GetCurrentActionName.cs" />
     <Compile Include="ExtensionMethods\HtmlHelperExtensions\GetCurrentControllerName.cs" />
+    <Compile Include="ModelBinding\MaliciousRequestModelBinder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ExtensionMethods\RouteDataExtensions\GetDefinitiveRouteData.cs" />
     <Compile Include="ExtensionMethods\UrlHelperExtensions\GetCurrentUrlWithRouteValues.cs" />

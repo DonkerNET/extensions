@@ -6,9 +6,9 @@ namespace Donker.Extensions.Helpers.FileHelper
     public static partial class FileHelper
     {
         /// <summary>
-        /// <para>Checks if a path with the specified directory, name and extension already exists and returns the first available path instead.</para>
-        /// <para>Output format: {directory}\{name}({number}).{extension}</para>
-        /// <para>Example output: C:\example(1).txt</para>
+        /// <para>Checks if a path with the specified directory, name and extension already exists. If so, the first available path with the correct sequence number is returned instead.</para>
+        /// <para>Output format with sequence number: {directory}\{name}({sequence number}).{extension}</para>
+        /// <para>Example output with sequence number: C:\example(2).txt</para>
         /// </summary>
         /// <param name="directory">The directory of the file path to check.</param>
         /// <param name="name">The name of the file path to check.</param>
@@ -30,7 +30,7 @@ namespace Donker.Extensions.Helpers.FileHelper
             if (extension == null)
                 extension = string.Empty;
 
-            int number = 0;
+            int number = ExtractNumberFromFileName(name, out name);
             string numberString = string.Empty;
 
             string fullPath;
@@ -49,9 +49,9 @@ namespace Donker.Extensions.Helpers.FileHelper
         }
 
         /// <summary>
-        /// <para>Checks if the path of the specified file already exists and returns the first available path instead.</para>
-        /// <para>Output format: {directory}\{name}({number}).{extension}</para>
-        /// <para>Example output: C:\example(1).txt</para>
+        /// <para>Checks if the path of the specified file already exists. If so, the first available path with the correct sequence number is returned instead.</para>
+        /// <para>Output format with sequence number: {directory}\{name}({sequence number}).{extension}</para>
+        /// <para>Example output with sequence number: C:\example(2).txt</para>
         /// </summary>
         /// <param name="fileInfo">The file for which to check the path.</param>
         /// <returns>The file path that is actually available, as a <see cref="string"/>.</returns>
@@ -71,9 +71,9 @@ namespace Donker.Extensions.Helpers.FileHelper
         }
 
         /// <summary>
-        /// <para>Checks if the specified file path already exists and returns the first available path instead.</para>
-        /// <para>Output format: {directory}\{name}({number}).{extension}</para>
-        /// <para>Example output: C:\example(1).txt</para>
+        /// <para>Checks if the specified file path already exists. If so, the first available path with the correct sequence number is returned instead.</para>
+        /// <para>Output format with sequence number: {directory}\{name}({sequence number}).{extension}</para>
+        /// <para>Example output with sequence number: C:\example(2).txt</para>
         /// </summary>
         /// <param name="filePath">The file path to check.</param>
         /// <returns>The file path that is actually available, as a <see cref="string"/>.</returns>
@@ -83,9 +83,49 @@ namespace Donker.Extensions.Helpers.FileHelper
                 throw new ArgumentNullException("filePath", "The file path cannot be null.");
             if (filePath.Length == 0)
                 throw new ArgumentException("The file path cannot be empty.", "filePath");
-
+            
             FileInfo fileInfo = new FileInfo(filePath);
             return GetFirstAvailableFilePath(fileInfo);
+        }
+
+        private static int ExtractNumberFromFileName(string name, out string strippedName)
+        {
+            const int defaultNumber = 1;
+
+            strippedName = name;
+
+            if (string.IsNullOrEmpty(name))
+                return defaultNumber;
+
+            int numEnd = name.Length - 1;
+
+            if (name[numEnd] != ')')
+                return defaultNumber;
+
+            int numStart = name.LastIndexOf('(', numEnd) + 1;
+
+            if (numStart == 0)
+                return defaultNumber;
+
+            string numberStr = name.Substring(numStart, numEnd - numStart);
+
+            if (numberStr.Length == 0)
+                return defaultNumber;
+
+            int extractedNumber;
+
+            if (!int.TryParse(numberStr, out extractedNumber))
+                return defaultNumber;
+
+            strippedName = strippedName.Substring(0, numStart - 1);
+
+            if (strippedName.Length == 0)
+            {
+                strippedName = name;
+                return defaultNumber;
+            }
+
+            return extractedNumber;
         }
     }
 }
