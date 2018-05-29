@@ -126,6 +126,7 @@
     <Compile Include="ExtensionMethods\StringExtensions\FirstCharToUpper.cs" />
     <Compile Include="ExtensionMethods\StringExtensions\IndicesOf.cs" />
     <Compile Include="ExtensionMethods\StringExtensions\RemoveAllWhiteSpace.cs" />
+    <Compile Include="ExtensionMethods\StringExtensions\ToPascalCase.cs" />
     <Compile Include="ExtensionMethods\StringExtensions\TrimString.cs" />
     <Compile Include="ExtensionMethods\CharExtensions\IsHex.cs" />
     <Compile Include="ExtensionMethods\StringExtensions\Truncate.cs" />

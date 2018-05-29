@@ -9,7 +9,6 @@ namespace Donker.Extensions.ExtensionMethods
         /// </summary>
         /// <param name="text">The <see cref="string"/> to convert.</param>
         /// <returns>The <paramref name="text"/> converted to a new PascalCase <see cref="string"/>.</returns>
-        /// <exception cref="ArgumentNullException"><paramref name="text"/> is <value>null</value>.</exception>
         public static string ToPascalCase(this string text)
         {
             if (string.IsNullOrEmpty(text))
