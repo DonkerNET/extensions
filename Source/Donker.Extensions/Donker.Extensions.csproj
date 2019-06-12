@@ -114,6 +114,8 @@
     <Compile Include="ExtensionMethods\NameValueCollectionExtensions\ToQueryString.cs" />
     <Compile Include="ExtensionMethods\StringBuilderExtensions\ReplaceMultiple.cs" />
     <Compile Include="ExtensionMethods\StringExtensions\AddWhiteSpaceBeforeUpperChars.cs" />
+    <Compile Include="ExtensionMethods\StringExtensions\RemoveZwsp.cs" />
+    <Compile Include="ExtensionMethods\StringExtensions\ContainsZwsp.cs" />
     <Compile Include="ExtensionMethods\StringExtensions\ContainsString.cs" />
     <Compile Include="ExtensionMethods\IEnumerableExtensions\CreateString.cs" />
     <Compile Include="ExtensionMethods\StringExtensions\IsNumber.cs" />
