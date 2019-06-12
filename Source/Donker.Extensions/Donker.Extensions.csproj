@@ -78,6 +78,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ExtensionMethods\AssemblyExtensions\GetFrameworkVersion.cs" />
+    <Compile Include="ExtensionMethods\CharExtensions\IsZwsp.cs" />
     <Compile Include="ExtensionMethods\DateTimeOffsetExtensions\CalculateAge.cs" />
     <Compile Include="ExtensionMethods\DateTimeOffsetExtensions\GetIso8601FirstWeek.cs" />
     <Compile Include="ExtensionMethods\DateTimeOffsetExtensions\GetIso8601DayNumberOfWeek.cs" />
