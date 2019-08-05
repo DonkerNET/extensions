@@ -6,22 +6,25 @@ namespace Donker.Extensions.ExtensionMethods
     public static partial class StringExtensions
     {
         /// <summary>
-        /// Removes all zero-width space characters from the <see cref="string"/>.
+        /// Removes all whitespace from the <see cref="string"/>, including zero-width space characters.
         /// </summary>
-        /// <param name="text">The <see cref="string"/> to remove the zero-width space characters from.</param>
-        /// <returns>The <paramref name="text"/> as a new <see cref="string"/> where the zero-width space characters have been removed.</returns>
+        /// <param name="text">The <see cref="string"/> to remove the whitespace and zero-width space characters from.</param>
+        /// <returns>The <paramref name="text"/> as a new <see cref="string"/> where the whitespace and zero-width space characters have been removed.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="text"/> is <value>null</value>.</exception>
-        public static string RemoveZwsp(this string text)
+        public static string RemoveWhiteSpaceAndZwsp(this string text)
         {
             if (text == null)
                 throw new ArgumentNullException("text");
 
             if (text.Length == 0)
                 return text;
-
+            
             char[] chars = text
                 .Where(c =>
                 {
+                    if (char.IsWhiteSpace(c))
+                        return false;
+
                     switch (c)
                     {
                         case '\u180e': // MONGOLIAN VOWEL SEPARATOR

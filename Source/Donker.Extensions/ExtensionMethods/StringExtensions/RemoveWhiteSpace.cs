@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Text;
+using System.Linq;
 
 namespace Donker.Extensions.ExtensionMethods
 {
@@ -11,21 +11,19 @@ namespace Donker.Extensions.ExtensionMethods
         /// <param name="text">The <see cref="string"/> to remove the whitespace from.</param>
         /// <returns>The <paramref name="text"/> as a new <see cref="string"/> where the whitespace has been removed.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="text"/> is <value>null</value>.</exception>
-        public static string RemoveAllWhiteSpace(this string text)
+        public static string RemoveWhiteSpace(this string text)
         {
             if (text == null)
                 throw new ArgumentNullException("text");
 
             if (text.Length == 0)
                 return text;
+            
+            char[] chars = text
+                .Where(c => !char.IsWhiteSpace(c))
+                .ToArray();
 
-            StringBuilder resultBuilder = new StringBuilder();
-
-            foreach (char c in text)
-                if (!char.IsWhiteSpace(c))
-                    resultBuilder.Append(c);
-
-            return resultBuilder.ToString();
+            return new string(chars);
         }
     }
 }

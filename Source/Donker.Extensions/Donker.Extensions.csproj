@@ -115,6 +115,8 @@
     <Compile Include="ExtensionMethods\NameValueCollectionExtensions\ToQueryString.cs" />
     <Compile Include="ExtensionMethods\StringBuilderExtensions\ReplaceMultiple.cs" />
     <Compile Include="ExtensionMethods\StringExtensions\AddWhiteSpaceBeforeUpperChars.cs" />
+    <Compile Include="ExtensionMethods\StringExtensions\RemoveWhiteSpaceAndZwsp.cs" />
+    <Compile Include="ExtensionMethods\StringExtensions\RemoveWhiteSpace.cs" />
     <Compile Include="ExtensionMethods\StringExtensions\RemoveZwsp.cs" />
     <Compile Include="ExtensionMethods\StringExtensions\ContainsZwsp.cs" />
     <Compile Include="ExtensionMethods\StringExtensions\ContainsString.cs" />
@@ -128,7 +130,6 @@
     <Compile Include="ExtensionMethods\StringExtensions\IsWhiteSpace.cs" />
     <Compile Include="ExtensionMethods\StringExtensions\FirstCharToUpper.cs" />
     <Compile Include="ExtensionMethods\StringExtensions\IndicesOf.cs" />
-    <Compile Include="ExtensionMethods\StringExtensions\RemoveAllWhiteSpace.cs" />
     <Compile Include="ExtensionMethods\StringExtensions\ToPascalCase.cs" />
     <Compile Include="ExtensionMethods\StringExtensions\TrimString.cs" />
     <Compile Include="ExtensionMethods\CharExtensions\IsHex.cs" />
